@@ -1,0 +1,31 @@
+<div class="table-responsive">
+  <table class="table table-striped table-hover">
+    <thead class="table-light">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Position</th>
+        <th>Salary</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of employees">
+        <td>{{ employee.id }}</td>
+        <td>{{ employee.name }}</td>
+        <td>{{ employee.email }}</td>
+        <td>{{ employee.position }}</td>
+        <td>{{ employee.salary | currency }}</td>
+        <td>
+          <a [routerLink]="['/employee', employee.id]" class="btn btn-sm btn-info me-2">
+            View
+          </a>
+          <a [routerLink]="['/employee/edit', employee.id]" class="btn btn-sm btn-warning me-2">
+            Edit
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Product Cards</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        /* Product grid container */
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1200px;
+        }
+        
+        /* Individual product card */
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            width: 220px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        /* Product image */
+        .product-image {
+            height: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .product-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        
+        /* Product title */
+        .product-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        /* Product description */
+        .product-description {
+            font-size: 12px;
+            color: #888;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+        
+        /* Product price */
+        .product-price {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        /* Star rating */
+        .star-rating {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+        
+        .star {
+            color: #ffc107;
+            font-size: 20px;
+            margin: 0 2px;
+        }
+        
+        .star.empty {
+            color: #e0e0e0;
+        }
+        
+        /* Buy now button */
+        .buy-btn {
+            border: none;
+            padding: 12px 0;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+        
+        /* Button color variations */
+        .buy-btn.blue {
+            background-color: #009688;
+        }
+        
+        .buy-btn.purple {
+            background-color: #474787;
+        }
+        
+        .buy-btn.black {
+            background-color: #222;
+        }
+        
+        .buy-btn.orange {
+            background-color: #ff9f43;
+        }
+        
+        .buy-btn:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="product-container">
+        <!-- Shoes Product Card -->
+        <div class="product-card">
+            <div>
+                <div class="product-image">
+                    <img src="https://m.media-amazon.com/images/I/81Qi5P+GYbL._AC_SX296_CB1169409_QL70_.jpg" alt="Blue Shoes">
+                </div>
+                <h3 class="product-title">Shoes</h3>
+                <p class="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <div class="product-price">$100.00</div>
+                <div class="star-rating">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star empty">★</span>
+                </div>
+            </div>
+            <button class="buy-btn blue">Buy Now</button>
+        </div>
+
+        <!-- Earphone Product Card -->
+        <div class="product-card">
+            <div>
+                <div class="product-image">
+                    <img src="https://m.media-amazon.com/images/I/710T1sZiT7L._AC_SR230,210_CB1169409_QL70_.jpg" alt="Earphone">
+                </div>
+                <h3 class="product-title">Earphone</h3>
+                <p class="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <div class="product-price">$40.00</div>
+                <div class="star-rating">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star empty">★</span>
+                    <span class="star empty">★</span>
+                </div>
+            </div>
+            <button class="buy-btn purple">Buy Now</button>
+        </div>
+
+        <!-- Watch Product Card -->
+        <div class="product-card">
+            <div>
+                <div class="product-image">
+                    <img src="https://m.media-amazon.com/images/I/41eJAiXPq6L._AC_SR250,250_QL65_.jpg" alt="Watch">
+                </div>
+                <h3 class="product-title">Watch</h3>
+                <p class="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <div class="product-price">$70.84</div>
+                <div class="star-rating">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star empty">★</span>
+                </div>
+            </div>
+            <button class="buy-btn black">Buy Now</button>
+        </div>
+
+        <!-- Mobile Product Card -->
+        <div class="product-card">
+            <div>
+                <div class="product-image">
+                    <img src="https://m.media-amazon.com/images/I/61JvFLHZ6NL._AC_SR230,210_CB1169409_QL70_.jpg" alt="Mobile">
+                </div>
+                <h3 class="product-title">Mobile</h3>
+                <p class="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <div class="product-price">$1000.84</div>
+                <div class="star-rating">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                </div>
+            </div>
+            <button class="buy-btn orange">Buy Now</button>
+        </div>
+    </div>
+</body>
+</html>

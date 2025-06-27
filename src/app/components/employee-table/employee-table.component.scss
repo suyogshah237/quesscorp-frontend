@@ -1,0 +1,22 @@
+table {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+thead {
+  background-color: #f5f5f5;
+}
+
+th {
+  font-weight: 600;
+  color: #333;
+}
+
+tbody tr:hover {
+  background-color: rgba(0, 123, 255, 0.05);
+}
+
+.btn-sm {
+  border-radius: 4px;
+}

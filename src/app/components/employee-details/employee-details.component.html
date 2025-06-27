@@ -1,0 +1,45 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Employee Details</h2>
+    <a routerLink="/" class="btn btn-outline-secondary">
+      &laquo; Back to Search
+    </a>
+  </div>
+
+  <div *ngIf="loading" class="d-flex justify-content-center">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="employee && !loading" class="card">
+    <div class="card-header bg-info text-white">
+      <h3>{{ employee.name }}</h3>
+    </div>
+    <div class="card-body">
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <p><strong>ID:</strong> {{ employee.id }}</p>
+          <p><strong>Email:</strong> {{ employee.email }}</p>
+        </div>
+        <div class="col-md-6">
+          <p><strong>Position:</strong> {{ employee.position }}</p>
+          <p><strong>Salary:</strong> {{ employee.salary | currency }}</p>
+        </div>
+      </div>
+
+      <div class="d-flex mt-4">
+        <a [routerLink]="['/employee/edit', employee.id]" class="btn btn-primary me-2">
+          Edit
+        </a>
+        <button (click)="deleteEmployee()" class="btn btn-danger">
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

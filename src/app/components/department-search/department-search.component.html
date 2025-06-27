@@ -1,0 +1,70 @@
+<div class="container mt-4">
+  <h2>Department Employee Search</h2>
+  
+  <div class="row mb-4">
+    <div class="col-md-6">
+      <div class="input-group">
+        <input 
+          type="text" 
+          class="form-control" 
+          placeholder="Enter Department ID" 
+          [(ngModel)]="departmentId"
+          (keyup.enter)="searchDepartment()">
+        <button 
+          class="btn btn-primary" 
+          type="button" 
+          (click)="searchDepartment()">
+          Search
+        </button>
+      </div>
+      <div *ngIf="errorMessage" class="text-danger mt-2">
+        {{ errorMessage }}
+      </div>
+    </div>
+    
+    <div class="col-md-6 d-flex justify-content-end align-items-center">
+      <button 
+        class="btn btn-success px-4 py-2" 
+        type="button" 
+        (click)="downloadEmployeeReport()"
+        title="Download employees by department report"
+        style="min-width: 180px; white-space: nowrap;">
+        Download Report
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="loading" class="d-flex justify-content-center">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+  <div *ngIf="department && !loading" class="card mb-4">
+    <div class="card-header bg-light">
+      <h3>Department Details</h3>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-4">
+          <p><strong>ID:</strong> {{ department.id }}</p>
+        </div>
+        <div class="col-md-4">
+          <p><strong>Name:</strong> {{ department.name }}</p>
+        </div>
+        <div class="col-md-4">
+          <p><strong>Location:</strong> {{ department.location }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <app-employee-table 
+    *ngIf="employees.length > 0 && !loading" 
+    [employees]="employees">
+  </app-employee-table>
+
+  <div *ngIf="department && employees.length === 0 && !loading" class="alert alert-info">
+    No employees found in this department.
+  </div>
+</div>

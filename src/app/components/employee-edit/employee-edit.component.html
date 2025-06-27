@@ -1,0 +1,108 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>{{ isNewEmployee ? 'Create New Employee' : 'Edit Employee' }}</h2>
+    <button (click)="cancel()" class="btn btn-outline-secondary">
+      Cancel
+    </button>
+  </div>
+
+  <div *ngIf="loading" class="d-flex justify-content-center">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+
+  <form *ngIf="!loading" (ngSubmit)="saveEmployee()" #employeeForm="ngForm" class="card">
+    <div class="card-body">
+      <div class="mb-3" *ngIf="isNewEmployee">
+        <label for="id" class="form-label">Employee ID</label>
+        <input 
+          type="text" 
+          class="form-control" 
+          id="id" 
+          name="id" 
+          [(ngModel)]="employee.id"
+          required
+          #id="ngModel">
+        <div *ngIf="id.invalid && (id.dirty || id.touched)" class="text-danger">
+          Employee ID is required
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input 
+          type="text" 
+          class="form-control" 
+          id="name" 
+          name="name" 
+          [(ngModel)]="employee.name"
+          required
+          #name="ngModel">
+        <div *ngIf="name.invalid && (name.dirty || name.touched)" class="text-danger">
+          Name is required
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input 
+          type="email" 
+          class="form-control" 
+          id="email" 
+          name="email" 
+          [(ngModel)]="employee.email"
+          required
+          email
+          #email="ngModel">
+        <div *ngIf="email.invalid && (email.dirty || email.touched)" class="text-danger">
+          Valid email is required
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="position" class="form-label">Position</label>
+        <input 
+          type="text" 
+          class="form-control" 
+          id="position" 
+          name="position" 
+          [(ngModel)]="employee.position"
+          required
+          #position="ngModel">
+        <div *ngIf="position.invalid && (position.dirty || position.touched)" class="text-danger">
+          Position is required
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="salary" class="form-label">Salary</label>
+        <input 
+          type="number" 
+          class="form-control" 
+          id="salary" 
+          name="salary" 
+          [(ngModel)]="employee.salary"
+          required
+          min="0"
+          #salary="ngModel">
+        <div *ngIf="salary.invalid && (salary.dirty || salary.touched)" class="text-danger">
+          Salary must be a positive number
+        </div>
+      </div>
+
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button 
+          type="submit" 
+          class="btn btn-primary" 
+          [disabled]="employeeForm.invalid || submitInProgress">
+          {{ isNewEmployee ? 'Create' : 'Update' }}
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
