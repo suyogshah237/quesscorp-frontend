@@ -8,7 +8,7 @@ import { Employee } from '../models/employee.model';
   providedIn: 'root'
 })
 export class ApiService {
-  private baseUrl = 'http://localhost:8080/api';
+  private baseUrl = 'https://quesscorpapi.suyogshah.com/api';
 
   constructor(private http: HttpClient) { }
 
